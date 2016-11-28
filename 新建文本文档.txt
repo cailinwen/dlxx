@@ -1,0 +1,120 @@
+create database deli default charset utf8 collate utf8_unicode_ci;
+http://www.cnblogs.com/BeginMan/p/3860133.html
+
+https://github.com/BeginMan/codetheme
+
+
+二、银联支付
+1. 银联支付（网关支付）与支付宝支付基本上遵循了同样的流程，但是在发起支付的请求报文和签名、验证签名等方面存在细微的差别，特别是在签名和验证签名时，支付宝是直接对报文内容进行了RSA加密，但是银联却是首先对签名内容取SHA1的摘要，继而对此摘要做RSA加密，这点在build_sign函数中就可以很明显地看出来。
+
+2. 银联支付的证书文件申请流程比较繁琐，并且其格式也和支付宝使用的不同，我们申请到的私钥证书文件是以PKCS12的格式保存的，并且需要注意在从指定位置下载此证书后，导出证书时一定要将密码设置为6位的整数数字，之后，还需要将PKCS12格式的证书文件上传至指定位置并启用才可以正常使用此证书。
+
+核心的签名和报文构建代码如下：
+898440173720026
+
+import time
+import hashlib
+import urllib, urllib2
+import base64
+import OpenSSL
+from django.conf import settings
+
+def build_sign(param_map, sign_type="RSA"):
+    '''构建签名'''
+    # 将筛选的参数按照第一个字符的键值ASCII码递增排序（字母升序排序），如果遇到相同字符则按照第二个字符的键值ASCII码递增排序，以此类推。
+    sort_param = sorted([(key, unicode(value, settings.UNIONPAY_ENCODING).encode(settings.UNIONPAY_ENCODING)) for key, value in param_map.iteritems()], key=lambda x: x[0])
+    content = '&'.join(['='.join(x) for x in sort_param])
+    message = hashlib.sha1(content).hexdigest()
+    return base64.b64encode(OpenSSL.crypto.sign(settings.UNIONPAY_PRIVATE_KEY_OBJ, message, 'sha1'))
+
+def build_params(out_trade_no, total_amount):
+    params = {}
+    # 获取配置信息
+    params['accType'] = settings.UNIONPAY_ACC_TYPE
+    params['accessType'] = settings.UNIONPAY_ACCESS_TYPE
+    params['backUrl'] = settings.UNIONPAY_BACK_URL
+    params['frontUrl'] = settings.UNIONPAY_FRONT_URL
+    params['bizType'] = settings.UNIONPAY_BIZ_TYPE
+    params['certId'] = settings.UNIONPAY_CERT_ID
+    params['channelType'] = settings.UNIONPAY_CHANNEL_TYPE
+    params['currencyCode'] = settings.UNIONPAY_CURRENCY_CODE
+    params['encoding'] = settings.UNIONPAY_ENCODING
+    params['merId'] = settings.UNIONPAY_MER_ID
+    params['signMethod'] = settings.UNIONPAY_SIGN_METHOD
+    params['txnType'] = settings.UNIONPAY_TXN_TYPE
+    params['txnSubType'] = settings.UNIONPAY_TXN_SUBTYPE
+    params['version'] = settings.UNIONPAY_VERSION
+    
+    params['orderId'] = out_trade_no
+    params['txnAmt'] = '%d' % int(total_amount) # 单位为分
+    params['txnTime'] = time.strftime('%Y%m%d%H%M%S') # 
+    
+    params['signature'] = build_sign(params)
+#     return params
+    return urllib.urlencode(params)
+
+def check_sign(message, sign):
+    try:
+        OpenSSL.crypto.verify(settings.UNIONPAY_PUBLIC_KEY_OBJ, sign, message, 'SHA1')
+        return True
+    except Exception as _:
+        return False
+        
+        
+        
+商户私钥证书的载入方法（用户对发起支付的报文进行签名）：
+
+# 商户私钥证书
+UNIONPAY_APP_PRIVATE_KEY_CERT = os.path.join(UNIONPAY_CERTS_PATH, UNIONPAY_APP_PRIVATE_KEY_CERT_FILENAME) # PKCS12 format
+UNIONPAY_PRIVATE_KEYSTORE = OpenSSL.crypto.load_pkcs12(open(UNIONPAY_APP_PRIVATE_KEY_CERT).read(), UNIONPAY_APP_PRIVATE_KEY_CERT_PASSWORD)
+UNIONPAY_PRIVATE_KEY_OBJ = UNIONPAY_PRIVATE_KEYSTORE.get_privatekey()
+
+
+银联公钥证书的载入方法（用于验证银联回调的合法性）：
+
+
+# 银联公钥证书
+UNIONPAY_PUBLIC_KEY_CERT = os.path.join(UNIONPAY_CERTS_PATH, UNIONPAY_PUBLIC_KEY_CERT_FILENAME)
+UNIONPAY_PUBLIC_KEY_OBJ = OpenSSL.crypto.load_certificate(OpenSSL.crypto.FILETYPE_PEM, open(UNIONPAY_PUBLIC_KEY_CERT).read())
+
+
+
+
+后记：银联支付接入过程中，参考过其官方提供的一个Python实现的接口，里面同时使用了python的rsa模块和OpenSSL模块，并且对证书的格式做了各种处理，但是这些似乎是没有什么必要，只使用OpenSSL模块就完全可以完成相关的工作。
+
+
+
+在很多语音视频软件系统中，经常有将实时的音频或视频录制为文件保存到磁盘的需求，比如，视频监控系统中录制监控到的视频、视频会议系统中录制整个会议的过程、语音通话系统中录制完整的对话内容、等等。　
+
+一.缘起
+      最近正在做的一个网络招聘平台的项目，其中有一个模块是这样的，应聘者可以通过该系统的客户端录制自己的视频（自我介绍）上传到服务器，而后，招聘者会在合适的时候浏览这些应聘者的视频。该模块涉及到的主要技术就是语音视频录制技术，它需要把从麦克风采集到的语音数据和从摄像头采集到的视频数据编码并写到.mp4文件中。要完成这些功能，具体来说，需要解决如下几个技术问题：
+
+（1）麦克风数据采集
+
+（2）摄像头数据采集
+
+（3）音频数据编码
+
+（4）视频数据编码
+
+（5）将编码后的数据按.mp4文件格式写入到文件容器中。
+
+（6）保证音频视频播放的同步。
+
+二.Demo实现
+      如果要从头开始一步步解决这些问题，将是非常艰难的挑战。幸运的是，我们可以通过已有组件的组合来实现这些功能，语音视频数据的采集我们可以借助OMCS框架完成，后续的语音视频编码并生成mp4文件，我们可以借助MFile组件完成。为了更方便地讲解，这里我们将给出一个具体的demo，它可以录制从本地摄像头和本地麦克风采集的数据并生成mp4文件。demo运行的截图如下所示：
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
