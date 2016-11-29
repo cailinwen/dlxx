@@ -2,8 +2,7 @@ create database deli default charset utf8 collate utf8_unicode_ci;
 http://www.cnblogs.com/BeginMan/p/3860133.html
 
 https://github.com/BeginMan/codetheme
-
-
+http://www.cnblogs.com/jl-bai/p/5843322.html
 二、银联支付
 1. 银联支付（网关支付）与支付宝支付基本上遵循了同样的流程，但是在发起支付的请求报文和签名、验证签名等方面存在细微的差别，特别是在签名和验证签名时，支付宝是直接对报文内容进行了RSA加密，但是银联却是首先对签名内容取SHA1的摘要，继而对此摘要做RSA加密，这点在build_sign函数中就可以很明显地看出来。
 
