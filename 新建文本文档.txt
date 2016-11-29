@@ -1,5 +1,12 @@
 create database deli default charset utf8 collate utf8_unicode_ci;
+http://www.voidcn.com/blog/xmdevops_1/article/p-6246451.html
+https://github.com/rosarior/awesome-django
 http://www.cnblogs.com/BeginMan/p/3860133.html
+http://www.cnblogs.com/hhh5460/p/4564214.html
+http://www.jb51.net/article/60889.htm
+http://www.jb51.net/article/82233.htm
+http://www.jb51.net/article/81524.htm
+
 
 https://github.com/BeginMan/codetheme
 http://www.cnblogs.com/jl-bai/p/5843322.html
