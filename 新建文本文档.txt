@@ -6,8 +6,11 @@ http://www.cnblogs.com/hhh5460/p/4564214.html
 http://www.jb51.net/article/60889.htm
 http://www.jb51.net/article/82233.htm
 http://www.jb51.net/article/81524.htm
-
-
+ajax json
+http://www.2cto.com/kf/201403/287200.html
+http://blog.chinaunix.net/uid-25525723-id-342339.html
+http://blog.csdn.net/clh604/article/details/19608869
+http://blog.csdn.net/clh604/article/details/19822689
 
 http://www.voidcn.com/blog/xmdevops_1/article/p-6246451.html
 https://github.com/rosarior/awesome-django
