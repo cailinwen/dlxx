@@ -12,6 +12,16 @@ http://blog.chinaunix.net/uid-25525723-id-342339.html
 http://blog.csdn.net/clh604/article/details/19608869
 http://blog.csdn.net/clh604/article/details/19822689
 
+http://blog.csdn.net/fanyunlei/article/details/21650483
+
+http://blog.chinaunix.net/uid-26230811-id-3862857.html
+
+
+http://www.open-open.com/lib/query   flask
+
+
+
+
 http://www.voidcn.com/blog/xmdevops_1/article/p-6246451.html
 https://github.com/rosarior/awesome-django
 http://www.cnblogs.com/BeginMan/p/3860133.html
