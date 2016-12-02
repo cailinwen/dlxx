@@ -12,6 +12,9 @@ http://blog.chinaunix.net/uid-25525723-id-342339.html
 http://blog.csdn.net/clh604/article/details/19608869
 http://blog.csdn.net/clh604/article/details/19822689
 
+
+https://github.com/ibuler/jumpserver#readme
+
 http://blog.csdn.net/fanyunlei/article/details/21650483
 
 http://blog.chinaunix.net/uid-26230811-id-3862857.html
