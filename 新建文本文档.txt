@@ -20,6 +20,12 @@ http://blog.csdn.net/fanyunlei/article/details/21650483
 http://blog.chinaunix.net/uid-26230811-id-3862857.html
 http://blog.chinaunix.net/uid-25525723-id-342339.html
 http://www.open-open.com/lib/query   flask
+http://www.codesec.net/view/507700.html
+
+
+
+http://www.linuxidc.com/Linux/2015-08/121380.htm
+http://blog.csdn.net/iloveyin/article/details/49468645
 
 http://www.cnblogs.com/tk091/p/4176103.html
 
