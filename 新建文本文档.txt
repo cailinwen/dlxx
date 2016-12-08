@@ -8,6 +8,9 @@ http://www.jb51.net/article/82233.htm
 http://www.jb51.net/article/81524.htm
 ajax json
 
+执行自定义sql:
+http://www.cnblogs.com/lijintian/p/6100097.html
+
 http://www.2cto.com/kf/201403/287200.html
 http://blog.chinaunix.net/uid-25525723-id-342339.html
 http://blog.csdn.net/clh604/article/details/19608869
