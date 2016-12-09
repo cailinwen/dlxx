@@ -18,8 +18,8 @@ http://blog.chinaunix.net/uid-25525723-id-342339.html
 http://blog.csdn.net/clh604/article/details/19608869
 http://blog.csdn.net/clh604/article/details/19822689
 
-
-
+http://docs.30c.org/djangobook2/chapter07/
+http://blog.csdn.net/dj1174232716/article/details/40863249
 http://blog.csdn.net/xluren/article/details/17581497
 https://github.com/ibuler/jumpserver#readme
 
