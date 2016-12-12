@@ -8,7 +8,11 @@ http://www.jb51.net/article/82233.htm
 http://www.jb51.net/article/81524.htm
 ajax json
 
-执行自定义sql:
+执行自定义sql:pymysql
+
+http://www.cnblogs.com/W-Kr/p/5456810.html
+
+
 http://www.cnblogs.com/lijintian/p/6100097.html
 
 http://blog.chinaunix.net/uid-25525723-id-341611.html
