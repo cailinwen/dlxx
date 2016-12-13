@@ -11,6 +11,12 @@ ajax json
 执行自定义sql:pymysql
 
 
+https://github.com/mncu/django_projects
+
+
+
+http://www.jb51.net/article/42653.htm
+
 http://www.jb51.net/article/27504.htm
 
 http://www.cnblogs.com/W-Kr/p/5456810.html
