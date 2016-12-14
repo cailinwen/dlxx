@@ -6,6 +6,20 @@ http://www.cnblogs.com/hhh5460/p/4564214.html
 http://www.jb51.net/article/60889.htm
 http://www.jb51.net/article/82233.htm
 http://www.jb51.net/article/81524.htm
+
+
+flask+redis
+
+http://www.jb51.net/article/86021.htm
+
+
+
+
+
+
+
+
+
 ajax json
 
 执行自定义sql:pymysql
