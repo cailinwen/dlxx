@@ -11,6 +11,8 @@ http://www.jb51.net/article/81524.htm
 http://www.codeweblog.com/stag/python-tornado-mongodb-redis-docker/
 flask+redis
 
+https://github.com/laiwei/thepast
+
 http://www.jb51.net/article/86021.htm
 
 mongo + flask
