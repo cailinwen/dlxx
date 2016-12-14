@@ -12,7 +12,8 @@ flask+redis
 
 http://www.jb51.net/article/86021.htm
 
-
+mongo + flask
+http://www.cocoachina.com/ios/20150519/11866.html
 
 
 
