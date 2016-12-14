@@ -32,6 +32,8 @@ https://github.com/zangqilong198812/HotGirls
 
 ajax json
 
+
+在Django的模型中执行原始SQL查询的方法http://www.jb51.net/article/69774.htm
 执行自定义sql:pymysql
 c# wpf
 http://blog.csdn.net/fighter_yy/article/details/41308277
