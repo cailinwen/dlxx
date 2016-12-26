@@ -50,8 +50,7 @@ https://github.com/fxsjy/jieba/tree/master/jieba
 
 http://www.cnblogs.com/zdz8207/p/DeepLearning-Caffe.html
 
-
-
+http://www.ciotimes.com/gjzc/122165.html
 
 智能家居设备接入
 目前BroadLink与国内外的品牌家、电工厂商基本都有对接，包括海尔、京东、飞利浦、方太、欧普、汇泰龙、鸿雁等超过150家知名企业产品，兼容10大云平台，实现了从单品到无限可扩展系统的架构。除了提供快速接入平台，BroadLink还为厂家提供超级APP服务、云服务与大数据服务、系统解决方案、人工智能服务等。通过BroadLink DNA计划实现的第三方互联互通平台为厂家、平台方、用户之间搭建了桥梁，也使得机器人、可穿戴设备、车联网与智能家居的结合可以标准化的迅速实现。
