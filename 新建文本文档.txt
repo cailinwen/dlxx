@@ -44,6 +44,13 @@ http://www.cnblogs.com/fuhuixiang/p/4488029.html
 https://github.com/fxsjy/jieba/tree/master/jieba
 
 
+人工智能深度学习Caffe框架介绍，优秀的深度学习架构
+
+
+
+http://www.cnblogs.com/zdz8207/p/DeepLearning-Caffe.html
+
+
 
 
 
