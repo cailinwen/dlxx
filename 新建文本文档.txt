@@ -38,6 +38,16 @@ https://github.com/zangqilong198812/HotGirls
 
 
 
+
+django全文检索功能
+http://www.cnblogs.com/fuhuixiang/p/4488029.html
+https://github.com/fxsjy/jieba/tree/master/jieba
+
+
+
+
+
+
 ajax json
 
 
