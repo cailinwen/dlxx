@@ -47,6 +47,13 @@ https://github.com/fxsjy/jieba/tree/master/jieba
 人工智能深度学习Caffe框架介绍，优秀的深度学习架构
 
 
+2016中国人工智能创业公司 
+
+
+
+http://www.ciotimes.com/gjzc/122165.html
+http://finance.21cn.com/newsdoc/zx/a/2016/1226/13/31810756.shtml
+
 
 http://www.cnblogs.com/zdz8207/p/DeepLearning-Caffe.html
 
