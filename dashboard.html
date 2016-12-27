@@ -1,0 +1,67 @@
+{% extends 'index.html' %}
+
+{% block page-container %}
+
+   <!--
+
+
+
+.chat-box{
+     height:500px;
+     border:1px solid greenyellow;
+}
+
+.contact-list{
+    height:100%;
+    border:1px solid crimson;
+
+}
+
+.dialog-box{
+    height:100%;
+    border:1px solid urple;
+
+}
+
+
+
+
+
+    <h3>Party聊天</h3>-->
+<div>
+    <!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li role="presentation" class="active"><a href="#contact-box" role="tab" data-toggle="tab">联系人</a></li>
+  <li role="presentation"><a href="#contact-group-box" role="tab" data-toggle="tab">群组</a></li>
+  <li role="presentation"><a href="#config" role="tab" data-toggle="tab">配置</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="contact-box">
+      <div class="row chat-box">
+          <div class="contact-list col-md-3">
+            <div class="contact-list head">
+                <input type="text" />
+            </div>
+              <div class="contact-list-content">
+                  {% for contact in request.user.userprofile.friends.select_related %}
+                    {{ contact.name }}
+                  {% endfor %}
+            </div>
+
+          </div>
+
+          <div class="dialog-box col-md-9">
+                聊天
+          </div>
+
+      </div>
+
+
+  </div>
+  <div role="tabpanel" class="tab-pane" id="contact-group-box">群组</div>
+  <div role="tabpanel" class="tab-pane" id="config">配置</div>
+</div>
+</div>
+{% endblock %}
